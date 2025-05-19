@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+        }
+        .menu-item {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+        .order-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to FoodExpress</h1>
+
+    <div class="menu">
+        <div class="menu-item">
+            <h2>Burger</h2>
+            <p>$5.99</p>
+            <button onclick="order('Burger')">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <h2>Pizza</h2>
+            <p>$8.99</p>
+            <button onclick="order('Pizza')">Order Now</button>
+        </div>
+    </div>
+
+    <div class="order-form">
+        <h2>Place Your Order</h2>
+        <input type="text" id="foodItem" placeholder="Enter food name">
+        <input type="text" id="address" placeholder="Enter delivery address">
+        <button onclick="submitOrder()">Submit</button>
+    </div>
+
+    <script>
+        function order(item) {
+            document.getElementById("foodItem").value = item;
+        }
+
+        function submitOrder() {
+            let food = document.getElementById("foodItem").value;
+            let address = document.getElementById("address").value;
+
+            if (food && address) {
+                alert("Your order for " + food + " has been placed! It will be delivered to " + address);
+            } else {
+                alert("Please enter all details");
+            }
+        }
+    </script>
+
+</body>
+</html>
